@@ -1,5 +1,4 @@
 #include<iostream>
-
 using namespace std;
 
 class Point // создание типа !!
@@ -49,7 +48,7 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
         rez.y = this->y - b.y;
         return rez;
     }
-    Point Multiplication(Point& b){
+    Point Multi(Point& b){
         Point rez;
         rez.name = 'T';
         rez.x = this->x * b.x;
@@ -80,8 +79,13 @@ int main()
     Point rez = a.Sum(b);
     rez.Print();
     Point c;
-    a.Init('C', 4, 1);
-    Point rez1 = c.Multiplication(a);
+    c.Init('C', 5, 1);
+    c.Print();
+    Point k;
+    k.Init('K', 1, 0);
+    k.Print();
+    Point rez1 = c.Subtraction(k);
+    rez1.Print();
 
 
 }
