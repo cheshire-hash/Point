@@ -118,4 +118,8 @@ int main()
 	sum = a / b; // перегрузка оператора /
 
     Point sum = a + 10;
+	sum = a - 10;
+	sum = a * 10;
+	sum = a / 10;
+	sum.Print();
 }
