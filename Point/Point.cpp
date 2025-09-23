@@ -4,7 +4,6 @@ using namespace std;
 class Point // создание типа !!
 
 {
-
 private: // реализация, состояние объекта, закрытая часть объекта
 
     char name;
@@ -24,7 +23,8 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
     {
         cout << name << " X: " << x << "\tY: " << y << endl;
     }
-
+	Point(int x, int y) : x(x), y(y) {} // Конструктор с параметрами (инициализирующий список
+	Point() : Point(0, 0) {} // Конструктор по умолчанию, делегирующий конструктор
     Point& AddX(int _x)
     {
         this->x += _x; // this-> x  - обращение к члену объекта, через указатель на объект this
@@ -63,6 +63,18 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
         return rez;
     }
 
+	Point operator+(Point& b) {
+		return Point(x + b.x, y + b.y);
+	}
+	Point operator-(Point& b) {
+		return Point(x - b.x, y - b.y);
+	}
+	Point operator*(Point& b) {
+		return Point(x * b.x, y * b.y);
+	}
+	Point operator/(Point& b) {
+		return Point(x / b.x, y / b.y);
+	}
 
 };
 
@@ -78,14 +90,19 @@ int main()
     b.Init('B', 1, 2);
     Point rez = a.Sum(b);
     rez.Print();
-    Point c;
-    c.Init('C', 5, 1);
-    c.Print();
-    Point k;
-    k.Init('K', 1, 0);
-    k.Print();
-    Point rez1 = c.Subtraction(k);
-    rez1.Print();
+    //Point c;
+    //c.Init('C', 5, 1);
+    //c.Print();
+    //Point k;
+    //k.Init('K', 1, 0);
+    //k.Print();
+    //Point rez1 = c.Subtraction(k);
+    //rez1.Print();
 
+    Point sum = a.Sum(b);
+	Point sum2 = a + b; // перегрузка оператора +
+	sum = a - b; // перегрузка оператора -
+	sum = a * b; // перегрузка оператора *
+	sum = a / b; // перегрузка оператора /
 
 }
