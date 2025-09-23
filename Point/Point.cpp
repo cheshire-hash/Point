@@ -75,6 +75,18 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
 	Point operator/(Point& b) {
 		return Point(x / b.x, y / b.y);
 	}
+	Point operator+(int val) {
+		return Point(x + val, y + val);
+	}
+	Point operator-(int val) {
+		return Point(x - val, y - val);
+	}
+	Point operator*(int val) {
+		return Point(x * val, y * val);
+	}
+	Point operator/(int val) {
+		return Point(x / val, y / val);
+	}
 
 };
 
@@ -105,4 +117,5 @@ int main()
 	sum = a * b; // перегрузка оператора *
 	sum = a / b; // перегрузка оператора /
 
+    Point sum = a + 10;
 }
