@@ -88,38 +88,98 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
 		return Point(x / val, y / val);
 	}
 
+
+    bool operator>(Point& obj) {
+        if (*this > obj) {
+            return true;
+        }
+        return false;
+    }
+	bool operator<(Point& obj) {
+		if (*this < obj) {
+			return true;
+		}
+		return false;
+	}
+	bool operator!=(Point& obj) {
+		if (x != obj.x || y != obj.y) {
+			return true;
+		}
+		return false;
+
+	}
+	bool operator==(Point& obj) {
+		if (x == obj.x && y == obj.y) {
+			return true;
+		}
+		return false;
+	}
+	bool operator>=(Point& obj) {
+        if (x >= obj.x && y >= obj.y) {
+            return true;
+        }
+		return false;
+	}
+    bool operator!(){
+        if (x >= 0 && y >= 0) {
+            return false;
+        }
+		return true;
+    }
+
+    Point& operator++() {
+        x++;
+        y++;
+        return *this;
+    }
+    Point operator--() {
+        x--;
+        y--;
+        return *this;
+    }
 };
 
 int main()
 
 {
-    Point a; // объект класса!!!
-    a.Init('A', 4, 5);
-    a.Print();
-    /*a = a.AddX(10);
-    a.Print()*/;
-    Point b;
-    b.Init('B', 1, 2);
-    Point rez = a.Sum(b);
-    rez.Print();
-    //Point c;
-    //c.Init('C', 5, 1);
-    //c.Print();
-    //Point k;
-    //k.Init('K', 1, 0);
-    //k.Print();
-    //Point rez1 = c.Subtraction(k);
-    //rez1.Print();
+ //   Point a; // объект класса!!!
+ //   a.Init('A', 4, 5);
+ //   a.Print();
+ //   /*a = a.AddX(10);
+ //   a.Print()*/;
+ //   Point b;
+ //   b.Init('B', 1, 2);
+ //   Point rez = a.Sum(b);
+ //   rez.Print();
+ //   //Point c;
+ //   //c.Init('C', 5, 1);
+ //   //c.Print();
+ //   //Point k;
+ //   //k.Init('K', 1, 0);
+ //   //k.Print();
+ //   //Point rez1 = c.Subtraction(k);
+ //   //rez1.Print();
 
-    Point sum = a.Sum(b);
-	Point sum2 = a + b; // перегрузка оператора +
-	sum = a - b; // перегрузка оператора -
-	sum = a * b; // перегрузка оператора *
-	sum = a / b; // перегрузка оператора /
+ //   Point sum = a.Sum(b);
+	//Point sum2 = a + b; // перегрузка оператора +
+	//sum = a - b; // перегрузка оператора -
+	//sum = a * b; // перегрузка оператора *
+	//sum = a / b; // перегрузка оператора /
 
-    Point sum = a + 10;
-	sum = a - 10;
-	sum = a * 10;
-	sum = a / 10;
-	sum.Print();
+ //   Point sum = a + 10;
+	//sum = a - 10;
+	//sum = a * 10;
+	//sum = a / 10;
+	//sum.Print();
+
+	Point a(4, 15), b(2, 5), c(1, 1);
+    //logical operations
+	if (a > b) cout << "a > b" << endl;
+	if (a < b) cout << "a < b" << endl;
+	if (a == c) cout << "a == c" << endl;
+    //----------------------------------------------------------------------
+    //overloading of unary operations
+    Point d = a++;
+	d.Print();
+    
 }
