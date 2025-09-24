@@ -149,6 +149,31 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
         y--;
 		return temp;
     }
+    Point& operator+=(int a) {
+        x += a;
+        y += a;
+		return *this;
+    }
+    Point& operator-=(int a) {
+		x -= a;
+        y -= a;
+        return *this;
+    }
+	Point& operator*=(int a) {
+		x *= a;
+		y *= a;
+		return *this;
+	}
+	Point& operator/=(int a) {
+		x /= a;
+		y /= a;
+		return *this;
+	}
+	Point& operator%=(int a) {
+		x %= a;
+		y %= a;
+		return *this;
+	}/
 
 };
 
