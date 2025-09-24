@@ -137,6 +137,19 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
         y--;
         return *this;
     }
+    Point operator++(int){
+		Point temp(x, y);
+		x++;
+		y++;
+		return temp;
+    }
+	Point operator--(int) {
+		Point temp(x, y);
+        x--;
+        y--;
+		return temp;
+    }
+
 };
 
 int main()
@@ -179,7 +192,11 @@ int main()
 	if (a == c) cout << "a == c" << endl;
     //----------------------------------------------------------------------
     //overloading of unary operations
-    Point d = a++;
+	Point d = ++a; // d = a.operator++();
+    a.Print();
 	d.Print();
+
+	Point d1 = a++; // d1 = a.operator++(int);
+    
     
 }
