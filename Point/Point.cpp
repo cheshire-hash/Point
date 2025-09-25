@@ -193,6 +193,32 @@ Point operator+(int a, Point& b) {
 	Point rez(a + b.GetX(), a + b.GetY());
 	return rez;
 }
+Point operator-(int a, Point& b) {
+	Point rez(a - b.GetX(), a - b.GetY());
+	return rez;
+}
+Point operator++(Point& obj) {
+	obj.SetX(obj.GetX() + 1);
+	obj.SetY(obj.GetY() + 1);
+	return obj;
+}
+Point operator++(Point& obj, int) {
+	Point temp(obj.GetX(), obj.GetY());
+	obj.SetX(obj.GetX() + 1);
+	obj.SetY(obj.GetY() + 1);
+	return temp;
+}
+Point operator--(Point& obj) {
+	obj.SetX(obj.GetX() - 1);
+	obj.SetY(obj.GetY() - 1);
+	return obj;
+}
+Point operator--(Point& obj, int) {
+	Point temp(obj.GetX(), obj.GetY());
+	obj.SetX(obj.GetX() - 1);
+	obj.SetY(obj.GetY() - 1);
+	return temp;
+}
 
 int main()
 
