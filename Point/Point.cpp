@@ -100,18 +100,11 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
 	Point operator/(int val) {
 		return Point(x / val, y / val);
 	}
-
-    bool operator>(Point& obj) {
-        if (*this > obj) {
-            return true;
-        }
-        return false;
-    }
+	bool operator>(Point& obj) {
+		return (x > obj.x) && (y > obj.y);
+	}
 	bool operator<(Point& obj) {
-		if (*this < obj) {
-			return true;
-		}
-		return false;
+		return (x < obj.x) && (y < obj.y);
 	}
 	bool operator!=(Point& obj) {
 		if (x != obj.x || y != obj.y) {
@@ -224,7 +217,7 @@ Point operator-=(Point& obj1, Point& ob2) {
 	obj1.SetX(obj1.GetX() - ob2.GetX());
 	obj1.SetY(obj1.GetY() - ob2.GetY());
 	return obj1;
-
+}
 Point operator+=(Point& obj1, Point& ob2) {
 	obj1.SetX(obj1.GetX() + ob2.GetX());
 	obj1.SetY(obj1.GetY() + ob2.GetY());
@@ -286,6 +279,6 @@ int main()
 	a2 *= b;
 	c2 = a2 -= b2;
 	b2 += a2;
-	c2.Print();
+	b2.Print();
     
 }
