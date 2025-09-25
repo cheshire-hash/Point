@@ -262,23 +262,23 @@ int main()
 	//sum = a / 10;
 	//sum.Print();
 
-	Point a(4, 15), b(2, 5), c(1, 1);
-    //logical operations
-	if (a > b) cout << "a > b" << endl;
-	if (a < b) cout << "a < b" << endl;
-	if (a == c) cout << "a == c" << endl;
-    //----------------------------------------------------------------------
-    //overloading of unary operations
-	//Point d = ++a; // d = a.operator++();
- //   a.Print();
-	//d.Print();
+	//Point a(4, 15), b(2, 5), c(1, 1);
+ //   //logical operations
+	//if (a > b) cout << "a > b" << endl;
+	//if (a < b) cout << "a < b" << endl;
+	//if (a == c) cout << "a == c" << endl;
+ //   //----------------------------------------------------------------------
+ //   //overloading of unary operations
+	////Point d = ++a; // d = a.operator++();
+ ////   a.Print();
+	////d.Print();
 
 	Point a2(1, 2), b2(2, 3), c2(0, 0);
-	Point d1 = a++; // d1 = a.operator++(int);
-	c2 = 10 + b;
-	a2 *= b;
+	//Point d1 = a++; // d1 = a.operator++(int);
+	c2 = 10 + b2;
+	a2 *= b2;
 	c2 = a2 -= b2;
-	b2 += a2;
+	b2 += b2;
 	b2.Print();
     
 }
