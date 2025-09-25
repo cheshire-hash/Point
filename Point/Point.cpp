@@ -62,6 +62,19 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
         rez.y = this->y / b.y;
         return rez;
     }
+	int GetX() {
+		return x;
+	}
+	void SetX(int _x) {
+		x = _x;
+	}
+	int GetY() {
+		return y;
+	}
+	void SetY(int _y) {
+		y = _y;
+	}
+	
 
 	Point operator+(Point& b) {
 		return Point(x + b.x, y + b.y);
@@ -87,7 +100,6 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
 	Point operator/(int val) {
 		return Point(x / val, y / val);
 	}
-
 
     bool operator>(Point& obj) {
         if (*this > obj) {
@@ -173,9 +185,14 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
 		x %= a;
 		y %= a;
 		return *this;
-	}/
+	}
 
 };
+
+Point operator+(int a, Point& b) {
+	Point rez(a + b.GetX(), a + b.GetY());
+	return rez;
+}
 
 int main()
 
@@ -222,6 +239,7 @@ int main()
 	d.Print();
 
 	Point d1 = a++; // d1 = a.operator++(int);
+	d1 = 10 + a;
     
     
 }
