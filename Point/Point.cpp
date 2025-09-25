@@ -139,29 +139,29 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
 		return true;
     }
 
-    Point& operator++() {
-        x++;
-        y++;
-        return *this;
-    }
-    Point operator--() {
-        x--;
-        y--;
-        return *this;
-    }
-    Point operator++(int){
-		Point temp(x, y);
-		x++;
-		y++;
-		return temp;
-    }
-	Point operator--(int) {
-		Point temp(x, y);
-        x--;
-        y--;
-		return temp;
-    }
-    Point& operator+=(int a) {
+ //   Point& operator++() {
+ //       x++;
+ //       y++;
+ //       return *this;
+ //   }
+ //   Point operator--() {
+ //       x--;
+ //       y--;
+ //       return *this;
+ //   }
+ //   Point operator++(int){
+	//	Point temp(x, y);
+	//	x++;
+	//	y++;
+	//	return temp;
+ //   }
+	//Point operator--(int) {
+	//	Point temp(x, y);
+ //       x--;
+ //       y--;
+	//	return temp;
+ //   }
+  /*  Point& operator+=(int a) {
         x += a;
         y += a;
 		return *this;
@@ -175,7 +175,7 @@ public: //интерфейс объекта, доступная часть для клиента!! функции
 		x *= a;
 		y *= a;
 		return *this;
-	}
+	}*/
 	Point& operator/=(int a) {
 		x /= a;
 		y /= a;
@@ -218,6 +218,22 @@ Point operator--(Point& obj, int) {
 	obj.SetX(obj.GetX() - 1);
 	obj.SetY(obj.GetY() - 1);
 	return temp;
+
+}
+Point operator-=(Point& obj1, Point& ob2) {
+	obj1.SetX(obj1.GetX() - ob2.GetX());
+	obj1.SetY(obj1.GetY() - ob2.GetY());
+	return obj1;
+
+Point operator+=(Point& obj1, Point& ob2) {
+	obj1.SetX(obj1.GetX() + ob2.GetX());
+	obj1.SetY(obj1.GetY() + ob2.GetY());
+	return obj1;
+}
+Point operator*=(Point& obj1, Point& ob2) {
+	obj1.SetX(obj1.GetX() * ob2.GetX());
+	obj1.SetY(obj1.GetY() * ob2.GetY());
+	return obj1;
 }
 
 int main()
@@ -260,12 +276,16 @@ int main()
 	if (a == c) cout << "a == c" << endl;
     //----------------------------------------------------------------------
     //overloading of unary operations
-	Point d = ++a; // d = a.operator++();
-    a.Print();
-	d.Print();
+	//Point d = ++a; // d = a.operator++();
+ //   a.Print();
+	//d.Print();
 
+	Point a2(1, 2), b2(2, 3), c2(0, 0);
 	Point d1 = a++; // d1 = a.operator++(int);
-	d1 = 10 + a;
-    
+	c2 = 10 + b;
+	a2 *= b;
+	c2 = a2 -= b2;
+	b2 += a2;
+	c2.Print();
     
 }
